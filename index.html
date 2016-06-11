@@ -1,6 +1,9 @@
 <html>
 	<head>
 		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script>
+		</script>
 		<style type="text/css">
 			body, html {
 				margin:0px;
@@ -19,9 +22,10 @@
 				max-width:600px;
 				position:relative;
 				margin:0 auto;
-				/* At least the height of top cells (***)  */
-				padding-top:40px;                /*   /   */
-			}                                   /*   /   */
+				/* At least the height of top cells  (***)  */
+				padding-top:40px;                 /*   /   */
+			}                                    /*   /   */
+			/* Top headers  */                  /*   /   */
 			#content > h2 {                    /*   /   */
 				position:absolute;            /*   /   */
 				top:0px;                     /*   /   */
@@ -34,15 +38,12 @@
 			}
 			#content > h2.col-1 {
 				left:0px;
-				background-color:orange;
 			}
 			#content > h2.col-2 {
 				left:33.3333333333%;
-				background-color:green;
 			}
 			#content > h2.col-3 {
 				left:66.6666666666%;
-				background-color:purple;
 			}
 			#content > div {
 				display:inline-block;
@@ -55,32 +56,51 @@
 				margin:0px;
 				padding:0px;
 			}
-			/* Top header links */
+			/* Top header adjustment - No need to change this */
 			#content > h2 > a:link, #content > h2 > a:visited, #content > h2 > a:hover, #content > h2 > a:active {
-				color:white;
+				/* Removing this will make it underlined */
+				text-decoration:none;
+			}
+			/* Top header (unselected) */
+			.unselected-category {
+				background-color:orange;
+			}
+			/* Top header text (unselected) */
+			.unselected-category > a:link, .unselected-category > a:visited, .unselected-category > a:hover, .unselected-category > a:active {
+				color:black;
+			}
+			/* Top header (selected) */
+			.selected-category {
+				background-color:pink;
+			}
+			/* Top header text (selected) */
+			.selected-category > a:link, .selected-category > a:visited, .selected-category > a:hover, .selected-category > a:active {
+				color:black;
 			}
 			/* Cell title links */
 			#content > div > h3 > a:link, #content > div > h3 > a:visited, #content > div > h3 > a:hover, #content > div > h3 > a:active {
-				color:pink;
+				color:green;
+				/* Removing this will make it underlined */
+				text-decoration:none;
 			}
 		</style>
 	</head>
 	<body>
 		<h1>&iquest;Qui&eacute;n ayuda a Venezuela?</h1>
 		<div id="content">
-			<h2 class="col-1"><a href="" data-subtitle="food">Comida</a></h2><div>
+			<h2 class="col-1 selected-category"><a href="" data-subtitle="food">Comida</a></h2><div>
 				<h3><a href="">Nombre</a></h3>
 				Descripci&oacute;n
 			</div><div>
 				<h3><a href="">Nombre</a></h3>
 				Descripci&oacute;n
-			</div><h2 class="col-2"><a href="" data-subtitle="medicine">Medicamentos</a></h2><div>
+			</div><h2 class="col-2 unselected-category"><a href="" data-subtitle="medicine">Medicamentos</a></h2><div>
 				<h3><a href="">Nombre</a></h3>
 				Descripci&oacute;n
 			</div><div>
 				<h3><a href="">Nombre</a></h3>
 				Descripci&oacute;n
-			</div><h2 class="col-3"><a href="" data-subtitle="campaigns">Campa&ntilde;as</a></h2><div>
+			</div><h2 class="col-3 unselected-category"><a href="" data-subtitle="campaigns">Campa&ntilde;as</a></h2><div>
 				<h3><a href="">Nombre</a></h3>
 				Descripci&oacute;n
 			</div><div>
