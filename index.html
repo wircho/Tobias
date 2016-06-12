@@ -119,14 +119,40 @@
 				text-align:center;
 				cursor:pointer;
 			}
+			#content > h2:before {
+				background-size: auto 30px;
+				background-repeat:no-repeat;
+				background-position:center;
+				position:relative;
+				display:inline-block;
+				height: 30px;
+				content:"";
+				margin-right:5px;
+				vertical-align:middle;
+			}
+			/* Food */
 			#content > h2.col-1 {
 				left:0px;
 			}
+			#content > h2.col-1:before {
+				background-image:url(assets/comida.png);
+				width: 30px;
+			}
+			/* Medicine */
 			#content > h2.col-2 {
 				left:33.3333333333%;
 			}
+			#content > h2.col-2:before {
+				background-image:url(assets/medicinas.png);
+				width: 26px;
+			}
+			/* Campaigns */
 			#content > h2.col-3 {
 				left:66.6666666666%;
+			}
+			#content > h2.col-3:before {
+				background-image:url(assets/campanas.png);
+				width: 35px;
 			}
 			#content > div {
 				display:inline-block;
