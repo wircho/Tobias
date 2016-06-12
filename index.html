@@ -44,7 +44,6 @@
    						}else {
    							for (var i=0; i<boxes.length; i+=1) {
    								var box = boxes[i];
-   								console.log(box);
    								$(box).css("display","none");
    							}
    						}
@@ -52,6 +51,7 @@
 				};
 				//Pre-processing and binding
 				$("#content").children().each(function() {
+					console.log("here!!");
 					var $t = $(this);
 					if ($t.prop("tagName") === titleTagName) {
 						var category = $t.attr(categoryAttribute);
