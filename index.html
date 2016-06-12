@@ -51,7 +51,6 @@
 				};
 				//Pre-processing and binding
 				$("#content").children().each(function() {
-					console.log("here!!");
 					var $t = $(this);
 					if ($t.prop("tagName") === titleTagName) {
 						var category = $t.attr(categoryAttribute);
@@ -158,21 +157,21 @@
 		</style>
 	</head>
 	<body>
-		<h1>&iquest;Qui&eacute;n ayuda </br>a Venezuela?</h1>
+		<h1>&iquest;Qui&eacute;n ayuda a Venezuela?</h1>
 		<div id="content">
-			<h2 class="col-1 selected-category" data-subtitle="food">Comida</h2><div>
+			<h2 class="col-1 selected-category" data-category="food">Comida</h2><div>
 				<h3><a href="">Nombre1</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
 				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;ng</p>
-			</div><h2 class="col-2 unselected-category" data-subtitle="medicine">Medicamentos</h2><div>
+				<p>Descripci&oacute;n</p>
+			</div><h2 class="col-2 unselected-category" data-category="medicine">Medicamentos</h2><div>
 				<h3><a href="">Nombre3</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
 				<h3><a href="">Nombre4</a></h3>
 				<p>Descripci&oacute;n</p>
-			</div><h2 class="col-3 unselected-category" data-subtitle="campaigns">Campa&ntilde;as</h2><div>
+			</div><h2 class="col-3 unselected-category" data-category="campaigns">Campa&ntilde;as</h2><div>
 				<h3><a href="">Nombre5</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
