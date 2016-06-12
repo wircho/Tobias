@@ -79,11 +79,23 @@
 			}
 			h1 {
 				font-family: aleobold;
+				font-size: 300%;
 				text-align:center;
 				/* Title padding */
 				padding-top:100px;
 				padding-bottom:100px;
 				
+			}
+			/* Map */
+			h1:before {
+				content:url(assets/map.png);
+				margin-right:-15px;
+			}
+			/* Actual Title */
+			h1 > div {
+				display:inline-block;
+				vertical-align:top;
+				margin-top:10px;
 			}
 			#content {
 				background-color:red;
@@ -157,7 +169,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>&iquest;Qui&eacute;n ayuda</br>a Venezuela?</h1>
+		<h1><div>&iquest;Qui&eacute;n ayuda</br>a Venezuela?</div></h1>
 		<div id="content">
 			<h2 class="col-1 selected-category" data-category="food">Comida</h2><div>
 				<h3><a href="">Nombre1</a></h3>
