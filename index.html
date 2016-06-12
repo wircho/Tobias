@@ -4,6 +4,74 @@
 		<link rel="stylesheet" type="text/css" href="css/fontstyle.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script>
+			$(document).ready(function() {
+				//Constants
+				var titleTagName = "H2";
+				var categoryAttribute = "data-category";
+				var selectedCategoryClass = "selected-category";
+				var unselectedCategoryClass = "unselected-category"
+				//Helper variables
+				var currentCategory
+				//Variables
+				var categoryTitles = {};
+				var selectedCategory = "";
+				var categoryBoxes = {};
+				//Select Category
+				var selectCategory = function(category) {
+					selectedCategory = category;
+					for (var cat in categoryTitles) {
+						var $title = $(categoryTitles[cat]);
+						if (cat === category) {
+							$title.addClass(selectedCategoryClass);
+							$title.removeClass(unselectedCategoryClass);
+						}else {
+							$title.removeClass(selectedCategoryClass);
+							$title.addClass(unselectedCategoryClass);
+						}
+					}
+					showOrHideBoxes();
+				};
+				//Show/Hide
+				var showOrHideBoxes = function () {
+					for (var category in categoryBoxes) {
+   						if (!categoryBoxes.hasOwnProperty(category)) continue;
+   						var boxes = categoryBoxes[category];
+   						if (category === selectedCategory) {
+   							for (var i=0; i<boxes.length; i+=1) {
+   								var box = boxes[i];
+   								$(box).css("display","inline-block");
+   							}
+   						}else {
+   							for (var i=0; i<boxes.length; i+=1) {
+   								var box = boxes[i];
+   								console.log(box);
+   								$(box).css("display","none");
+   							}
+   						}
+   					}
+				};
+				//Pre-processing and binding
+				$("#content").children().each(function() {
+					var $t = $(this);
+					if ($t.prop("tagName") === titleTagName) {
+						var category = $t.attr(categoryAttribute);
+						currentCategory = category;
+						if ($t.hasClass(selectedCategoryClass)) {
+							selectedCategory = currentCategory;
+						}
+						categoryTitles[currentCategory] = this;
+						categoryBoxes[currentCategory] = new Array();
+						$t.click(function() {
+							selectCategory(category);
+						});
+					}else {
+						categoryBoxes[currentCategory].push(this);
+					}
+					$t.attr(categoryAttribute,currentCategory);
+				});
+				//Pre-selecting
+				showOrHideBoxes();
+			});
 		</script>
 		<style type="text/css">
 			body, html {
@@ -39,6 +107,7 @@
 				/* Height of top cells      (***) */
 				height:40px;
 				text-align:center;
+				cursor:pointer;
 			}
 			#content > h2.col-1 {
 				left:0px;
@@ -59,11 +128,6 @@
 				height:150px;
 				margin:0px;
 				padding:0px;
-			}
-			/* Top header adjustment - No need to change this */
-			#content > h2 > a:link, #content > h2 > a:visited, #content > h2 > a:hover, #content > h2 > a:active {
-				/* Removing this will make it underlined */
-				text-decoration:none;
 			}
 			/* Top header (unselected) */
 			.unselected-category {
@@ -96,23 +160,23 @@
 	<body>
 		<h1>&iquest;Qui&eacute;n ayuda </br>a Venezuela?</h1>
 		<div id="content">
-			<h2 class="col-1 selected-category"><a href="" data-subtitle="food">Comida</a></h2><div>
-				<h3><a href="">Nombre</a></h3>
+			<h2 class="col-1 selected-category" data-subtitle="food">Comida</h2><div>
+				<h3><a href="">Nombre1</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
-				<h3><a href="">Nombre</a></h3>
+				<h3><a href="">Nombre2</a></h3>
 				<p>Descripci&oacute;ng</p>
-			</div><h2 class="col-2 unselected-category"><a href="" data-subtitle="medicine">Medicamentos</a></h2><div>
-				<h3><a href="">Nombre</a></h3>
+			</div><h2 class="col-2 unselected-category" data-subtitle="medicine">Medicamentos</h2><div>
+				<h3><a href="">Nombre3</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
-				<h3><a href="">Nombre</a></h3>
+				<h3><a href="">Nombre4</a></h3>
 				<p>Descripci&oacute;n</p>
-			</div><h2 class="col-3 unselected-category"><a href="" data-subtitle="campaigns">Campa&ntilde;as</a></h2><div>
-				<h3><a href="">Nombre</a></h3>
+			</div><h2 class="col-3 unselected-category" data-subtitle="campaigns">Campa&ntilde;as</h2><div>
+				<h3><a href="">Nombre5</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
-				<h3><a href="">Nombre</a></h3>
+				<h3><a href="">Nombre6</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div>
 		</div>
