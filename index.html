@@ -1,13 +1,16 @@
 <html>
 	<head>
 		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" type="text/css" href="css/fontstyle.css">
+		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Karla:400,400italic' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
 				//Moving H1 away
 				$(window).scroll(function(){
-    				$("h1").css("top", Math.min(0, 150 - $(this).scrollTop()));
+    				$("h1").css("top", Math.min(0, 350 - $(this).scrollTop()));
 				});
 				//Constants
 				var titleTagName = "H2";
@@ -94,7 +97,7 @@
 				font-size: 300%;
 				text-align:center;
 				/* Title padding */
-				padding-top:10px;
+				padding-top:60px;
 				padding-bottom:0px;
 				margin-bottom:-40px;
 				margin-top:0px;
@@ -110,7 +113,7 @@
 				left:0px;
 				top:0px;
 				width:100%;
-				height:150px;
+				height:200px;
 				background:white;
 				content:"";
 				z-index:-1;
@@ -128,7 +131,7 @@
 				position:relative;
 				margin:0 auto;
 				/* At least the height of top cells  (***)  */
-				padding-top:40px;                  /*   /   */
+				padding-top:100px;                  /*   /   */
 				text-align:center;                /*   /   */
 			}                                    /*   /   */
 			/* Top headers  */                  /*   /   */
@@ -189,21 +192,23 @@
 				padding:0px;
 				border-style:solid;
 				border-color:black;
-				border-width:3px;
+				border-width:4px;
 				border-radius: 3px;
-				margin:8px;
+				margin:10px;
 				text-align:left;
 				vertical-align:middle;
 			}
 			#content > div:after {
 				content:"";
 				position:absolute;
-				left:3px;
-				top:3px;
+				left:10px;
+				top:10px;
 				width:101%;
 				height:101%;
 				z-index:-1;
 				background-color:#b9e3f0;
+				opacity:0.5;
+				border-radius: 3px;
 			}
 			/* Top header (unselected) */
 			.unselected-category {
@@ -227,7 +232,7 @@
 				border-style:solid;
 				border-color:black;
 				border-width:0px;
-				border-bottom-width:2px;
+				border-bottom-width:4px;
 			}
 			/* Cell title links */
 			#content > div > h3 > a:link, #content > div > h3 > a:visited, #content > div > h3 > a:hover, #content > div > h3 > a:active {
@@ -238,21 +243,25 @@
 			}
 			p {
 				display:block;
-				margin:0px;
+				margin-top:6px;
+				margin-left:6px;
+				margin-bottom:0px;
 				padding:0px;
-				padding-top:4px;
-				padding-left:5px;
+				padding-top:10px;
+				padding-left:10px;
 				padding-right:5px;
-				font-family: aleolight;
+				font-family: 'Karla', sans-serif;
 				height:170px;
 				background-image:url();
 				background-repeat:no-repeat;
 				background-position:center;
+				border-radius:3px;
+				
 			}
 			#vertical-dotted-line {
 				display:inline-block;
    				border-left: 4px dotted black;
-    			height: 200px;
+    			height: 80%;
     			width:0px;
 			} 
 			#people {
@@ -263,6 +272,12 @@
 				background-size: auto 100%;
 				margin-bottom: 30px;
 			}
+			footer {
+			width:100%;
+			height:200px;
+			border-top:4px dotted black;
+			margin-top:20px;
+		
 		</style>
 	</head>
 	<body>
@@ -271,33 +286,33 @@
 		<div id="people"></div>
 		<div id="content">
 			<h2 class="col-1 unselected-category" data-category="food">Alimentos</h2><div>
-				<h3><a href="">Nada por ac&aacute;</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<h3><a href="">mandao venezolano</a></h3>
+				<p style="background-color: #F2836B; background-size:100% auto;">
 					El gobierno de Venezuela prohibe el env&iacute;o de alimentos desde el exterior del pa&iacute;s;
 				</p>
 			</div><h2 class="col-2 selected-category" data-category="medicine">Medicinas</h2><div>
 				<h3><a href="http://www.chamos.org.uk">Chamos</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #F2385A; background-size:100% auto;">
 					Busca mejorar la calidad de vida de los ni&ntilde;os m&aacute;s pobres de Venezuela blah blah.
 				</p>
 			</div><div>
 				<h3><a href="http://www.ayudahumanitariavenezuela.org/index.html">Ayuda Humanitaria Vzla</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #F5A503; background-size:100% auto;">
 					Recolecta insumos en centros de acopio y provee la log&iacute;stica para su distribuci&oacute;n
 				</p>
 			</div><div>
 				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Una Medicina Para Vzla</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #E9F1DF; background-size:100% auto;">
 					Env&iacute;a medicinas a Venezuela a trav&eacute;s de la asociaci&oacute;n civil Venezolanos en Espa&ntilde;a
 				</p>
 			</div><div>
 				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #4AD9D9; background-size:100% auto;">
 					Texto
 				</p>
 			</div><div>
 				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #36B1BF; background-size:100% auto;">
 					Texto
 				</p>
 			</div><div>
@@ -327,37 +342,37 @@
 				</p>
 			</div><h2 class="col-3 unselected-category" data-category="campaigns">Campa&ntilde;as</h2><div>
 				<h3><a href="https://www.gofundme.com/28j8c6k">Giselle (PhD Mate)</a></h3>
-				<p style="background-color: #9fe57a; background-size:100% auto; color:white;">
+				<p style="background-color: #FFE13A; background-size:100% auto; position-left: 6px">
 					Aceptada con beca en la Universidad de Waterloo (Canada),
 					necesita apoyo para cubrir el vuelo en avi&oacute;n y comenzar sus estudios.
 				</p>
 			</div><div>
 				<h3><a href="http://www.vinotintomatematica.com">Vinotinto Matem&aacute;tica</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #FFC145; background-size:100% auto;">
 					Ayuda a llevar a estudiantes brillantes venezolanos a olimpiadas internacionales de matem&aacute;tica.
 				</p>
 			</div><div>
 				<h3><a href="https://www.gofundme.com/marthina">Marthina (Coraz&oacute;n)</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
-					Marthina, de 3 meses de edad, naci&oacute; con una cardiopat&iacute;a cong&eacute;nita.
+				<p style="background-color: #FF5D72; background-size:100% auto;">
+					 Marthina, de 3 meses de edad, naci&oacute; con una cardiopat&iacute;a cong&eacute;nita.
 				</p>
 			</div><div>
 				<h3><a href="https://www.gofundme.com/28j8c6k">Mar&iacute;a (PhD Bio Molecular)</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #16BBFF; background-size:100% auto;">
 					Fu&eacute; aceptada en la Universidad del Estado de Florida con ayuda financiera, y necesita dinero para
 					cubrir su primer mes de estudio.
 				</p>
 			</div><div>
 				<h3><a href="https://www.gofundme.com/afiunilapelicula">Afiuni la Pel&iacute;cula</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #00D5B9; background-size:100% auto;">
 					Un film sobre el encarcelamiento pol&iacute;tico y maltrato de la jueza
 					Mar&iacute;a Afiuni por parte del gobierno venezolano.
 				</p>
 			</div><div>
 				<h3><a href="https://www.gofundme.com/gqvu7j9t">Olga (C&aacute;ncer)</a></h3>
-				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+				<p style="background-color: #596AD5; background-size:100% auto;">
 					Bi&oacute;logo y docente, diagnosticada en 2015 con c&acute;ncer de seno estad&iacute;o II.
-				</p>
+				<!--</p>
 			</div><div>
 				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
 				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
@@ -382,8 +397,10 @@
 				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
 				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
 					Texto.
-				</p>
+				</p>-->
 			</div>
 		</div>
+		<footer> 
+			</footer>
 	</body>
 </html>
