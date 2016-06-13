@@ -5,6 +5,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
+				//Moving H1 away
+				$(window).scroll(function(){
+    				$("h1").css("top", Math.min(0, 250 - $(this).scrollTop()));
+				});
 				//Constants
 				var titleTagName = "H2";
 				var categoryAttribute = "data-category";
@@ -78,7 +82,14 @@
 				padding:0px;
 				text-align:center;
 			}
+			body {
+				padding-top:150px;
+			}
 			h1 {
+				position:fixed;
+				left:0px;
+				top:0px;
+				width:100%;
 				font-family: aleobold;
 				font-size: 300%;
 				text-align:center;
@@ -86,12 +97,23 @@
 				padding-top:10px;
 				padding-bottom:0px;
 				margin-bottom:-40px;
-				
+				margin-top:0px;
 			}
 			/* Map */
 			h1:before {
 				content:url(assets/map.png);
 				margin-right:-15px;
+			}
+			/* White banner (to hide dotted line behind it) */
+			h1:after {
+				position:absolute;
+				left:0px;
+				top:0px;
+				width:100%;
+				height:150px;
+				background:white;
+				content:"";
+				z-index:-1;
 			}
 			/* Actual Title */
 			h1 > div {
@@ -194,17 +216,53 @@
 			#vertical-dotted-line {
 				display:inline-block;
    				border-left: 4px dotted black;
-    			height: 200px;
+    			height: 300px;
     			width:0px;
 			} 
+			#people {
+				height:100px;
+				background-image:url(assets/munecos.png);
+				background-position:center;
+				background-repeat:no-repeat;
+				background-size: auto 100%;
+				margin-bottom: 30px;
+			}
 		</style>
 	</head>
 	<body>
 		<h1><div>&iquest;Qui&eacute;n ayuda</br>a Venezuela?</div></h1>
 		<div id="vertical-dotted-line"></div>
+		<div id="people"></div>
 		<div id="content">
 			<h2 class="col-1 selected-category" data-category="food">Comida</h2><div>
 				<h3><a href="">Nombre1</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre2</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
 				<h3><a href="">Nombre2</a></h3>
@@ -215,8 +273,59 @@
 			</div><div>
 				<h3><a href="">Nombre4</a></h3>
 				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre4</a></h3>
+				<p>Descripci&oacute;n</p>
 			</div><h2 class="col-3 unselected-category" data-category="campaigns">Campa&ntilde;as</h2><div>
 				<h3><a href="">Nombre5</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
+				<p>Descripci&oacute;n</p>
+			</div><div>
+				<h3><a href="">Nombre6</a></h3>
 				<p>Descripci&oacute;n</p>
 			</div><div>
 				<h3><a href="">Nombre6</a></h3>
