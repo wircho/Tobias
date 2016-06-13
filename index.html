@@ -185,8 +185,6 @@
 				/* Width of each cell */
 				/* Must be compatible with total/max width of content (~~~) */
 				width:270px;
-				/* Height of each cell */
-				height:150px;
 				margin:0px;
 				padding:0px;
 				border-style:solid;
@@ -224,6 +222,7 @@
 			#content > div > h3 {
 				margin:0px;
 				padding:5px;
+				height:25px;
 				border-style:solid;
 				border-color:black;
 				border-width:0px;
@@ -237,12 +236,17 @@
 				text-decoration:none;
 			}
 			p {
+				display:block;
 				margin:0px;
-				margin-top:4px;
 				padding:0px;
+				padding-top:4px;
 				padding-left:5px;
 				padding-right:5px;
 				font-family: aleolight;
+				height:170px;
+				background-image:url();
+				background-repeat:no-repeat;
+				background-position:center;
 			}
 			#vertical-dotted-line {
 				display:inline-block;
@@ -265,102 +269,32 @@
 		<div id="vertical-dotted-line"></div>
 		<div id="people"></div>
 		<div id="content">
-			<h2 class="col-1 selected-category" data-category="food">Alimentos</h2><div>
-				<h3><a href="">Nombre1</a></h3>
-				<p>Descripci&oacute;n</p>
+			<h2 class="col-1 unselected-category" data-category="food">Alimentos</h2><div>
+				<h3><a href="">Nada por ac&aacute;</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					El gobierno de Venezuela prohibe el env&iacute;o de alimentos desde el exterior del pa&iacute;s;
+				</p>
+			</div><h2 class="col-2 selected-category" data-category="medicine">Medicinas</h2><div>
+				<h3><a href="http://www.chamos.org.uk">Chamos</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Busca mejorar la calidad de vida de los ni&ntilde;os m&aacute;s pobres de Venezuela blah blah.
+				</p>
 			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
+				<h3><a href="http://www.ayudahumanitariavenezuela.org/index.html">Ayuda Humanitaria Vzla</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Recolecta insumos en centros de acopio y provee la log&iacute;stica para su distribuci&oacute;n
+				</p>
 			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre2</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><h2 class="col-2 unselected-category" data-category="medicine">Medicinas</h2><div>
-				<h3><a href="">Nombre3</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre4</a></h3>
-				<p>Descripci&oacute;n</p>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Una Medicina Para Vzla</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Env&iacute;a medicinas a Venezuela a trav&eacute;s de la asociaci&oacute;n civil Venezolanos en Espa&ntilde;a
+				</p>
 			</div><h2 class="col-3 unselected-category" data-category="campaigns">Campa&ntilde;as</h2><div>
-				<h3><a href="">Nombre5</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
-			</div><div>
-				<h3><a href="">Nombre6</a></h3>
-				<p>Descripci&oacute;n</p>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Giselle (PhD Mate)</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Aceptada con beca en la Universidad de Waterloo (Canada),
+					necesita apoyo para cubrir el vuelo en avi&oacute;n y comenzar sus estudios.
+				</p>
 			</div>
 		</div>
 	</body>
