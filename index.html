@@ -6,6 +6,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Karla:400,400italic' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script>
 			$(document).ready(function() {
 				//Moving H1 away
@@ -79,6 +80,32 @@
 				showOrHideBoxes();
 			});
 		</script>
+		<script> 
+		$(document).ready(function() {
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+            
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+                
+                $(this).animate({'opacity':'1'},600);
+                    
+            }
+            
+        }); 
+    
+    });
+    
+});
+</script>
+	
 		<style type="text/css">
 			body, html {
 				margin:0px;
@@ -256,7 +283,10 @@
 				background-repeat:no-repeat;
 				background-position:center;
 				border-radius:3px;
-				
+			}	
+			p:hover {
+    			opacity: 0.5;
+    			filter: alpha(opacity=50); /* For IE8 and earlier */
 			}
 			#vertical-dotted-line {
 				display:inline-block;
@@ -273,6 +303,7 @@
 				margin-bottom: 30px;
 				} 
 			#flying {
+		
 				margin-top:-125px;
 				height:150px;
 				background-image:url(assets/flying.png);
@@ -287,13 +318,57 @@
 				border-top:4px dotted black;
 				margin-top:20px;
 			}
+			#socialmedia {
+				height:40px;
+				position: fixed;
+				display: inline;
+				right:40px;
+				margin-top: -110px; 
+				z-index:1;
+				-webkit-transition: all 0.5s ease;
+     			-moz-transition: all 0.5s ease;
+      		 	-o-transition: all 0.5s ease;
+      			-ms-transition: all 0.5s ease;
+          		transition: all 0.5s ease;
+          		}
+          		#socialmedia:hover {
+  				-webkit-transform: rotate(-10deg);
+     			-moz-transform: rotate(-10deg);
+       			-o-transform: rotate(-10deg);
+      			-ms-transform: rotate(-10deg);
+          		transform: rotate(-10deg);
+			}
+			h4 {
+			font-family: aleolight;
+			font-size: 130%;
+			}
+		    h4 > a:link  {
+		    font-family: aleobold;
+			text-decoration:none;
+			color: #59caed;
+			}
+			h4 > a:hover {
+			color: #fed300;
+			
+			}
+			.hideme {
+			opacity:0;
+			}
 		</style>
 	</head>
 	<body>
+		
+		<div id="socialmedia">
+			<a href="mailto:gabrielasuemora@gmail.com">
+			<image src="assets/email.png" width="40px" />
+			</a>
+		</div>
 		<h1><div>&iquest;Qui&eacute;n ayuda</br>a Venezuela?</div></h1>
 		<div id="vertical-dotted-line"></div>
 		<div id="people"></div>
-		<div id="flying"></div>
+		<div class="hideme">
+			<div id="flying"></div>
+		</div>
 		<div id="content">
 			<h2 class="col-1 unselected-category" data-category="food">Alimentos</h2><div>
 				<h3><a href="">mandao venezolano</a></h3>
@@ -410,6 +485,10 @@
 				</p>-->
 			</div>
 		</div>
-		<div id="footer"></div>
+		<div id="footer">
+		</br>
+			<h4> Si deseas incluir alguna organizaci&oacute;n </br> o campa&ntilde;a contactarnos: </h4>  
+			<h4><a href="mailto:helpvzla@gmail.com"> helpvzla@gmail.com</h4> </a>
+		</div>
 	</body>
 </html>
