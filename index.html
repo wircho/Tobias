@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title></title>
+		<title>vzlahelp</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" type="text/css" href="css/fontstyle.css">
 		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
@@ -11,10 +11,11 @@
 			$(document).ready(function() {
 				//Moving H1 away
 				$(window).scroll(function(){
-    				$("h1").css("top", Math.min(0, 280 - $(this).scrollTop()));
+    				$("h1").css("top", Math.min(0, $("#vertical-dotted-line").height() - 100 - $(this).scrollTop()));
 				});
 				//Constants
 				var titleTagName = "H2";
+				var cellTagName = "DIV";
 				var categoryAttribute = "data-category";
 				var selectedCategoryClass = "selected-category";
 				var unselectedCategoryClass = "unselected-category"
@@ -71,8 +72,12 @@
 						$t.click(function() {
 							selectCategory(category);
 						});
-					}else {
+					}else if ($t.prop("tagName") === cellTagName) {
 						categoryBoxes[currentCategory].push(this);
+						var url = $t.find("a").first().attr("href");
+						$t.click(function() {
+							window.location.href = url;
+						});
 					}
 					$t.attr(categoryAttribute,currentCategory);
 				});
@@ -157,19 +162,19 @@
 				max-width:600px;
 				position:relative;
 				margin:0 auto;
-				/* At least the height of top cells  (***)  */
-				padding-top:100px;                  /*   /   */
-				text-align:center;                /*   /   */
-			}                                    /*   /   */
-			/* Top headers  */                  /*   /   */
+				/* At least the height of top cells  (***) */
+				padding-top:100px;
+				text-align:center;
+			}
+			/* Top headers  */
 			#content > h2 {        
-				font-family: aleoregular;      /*   /   */
-				position:absolute;            /*   /   */
-				top:0px;                     /*   /   */
-				margin:0px;                 /*   /   */
-				padding:0px;               /*   /   */
-				width:33.3333333333%;     /*  \/_  */
-				/* Height of top cells      (***) */
+				font-family: aleoregular;
+				position:absolute;
+				top:0px;
+				margin:0px;
+				padding:0px;
+				width:33.3333333333%;
+				/* Height of top cells (***) */
 				height:40px;
 				text-align:center;
 				cursor:pointer;
@@ -224,6 +229,7 @@
 				margin:10px;
 				text-align:left;
 				vertical-align:middle;
+				cursor:pointer;
 			}
 			#content > div:after {
 				content:"";
@@ -314,9 +320,10 @@
 			}
 			#footer {
 				width:100%;
-				height:200px;
+				height:170px;
 				border-top:4px dotted black;
 				margin-top:20px;
+				padding-top:30px
 			}
 			#socialmedia {
 				height:40px;
@@ -330,8 +337,8 @@
       		 	-o-transition: all 0.5s ease;
       			-ms-transition: all 0.5s ease;
           		transition: all 0.5s ease;
-          		}
-          		#socialmedia:hover {
+          	}
+          	#socialmedia:hover {
   				-webkit-transform: rotate(-10deg);
      			-moz-transform: rotate(-10deg);
        			-o-transform: rotate(-10deg);
@@ -361,10 +368,9 @@
 		</style>
 	</head>
 	<body>
-		
 		<div id="socialmedia">
-			<a href="mailto:gabrielasuemora@gmail.com">
-			<image src="assets/email.png" width="40px" />
+			<a href="mailto:info@vzla.help">
+				<image src="assets/email.png" width="40px" />
 			</a>
 		</div>
 		<h1><div>&iquest;Qui&eacute;n ayuda</br>a Venezuela?</div></h1>
@@ -495,9 +501,8 @@
 			</div>
 		</div>
 		<div id="footer">
-		</br>
-			<h4> Si deseas incluir alguna organizaci&oacute;n </br> o campa&ntilde;a contactarnos: </h4>  
-			<h4><a href="mailto:helpvzla@gmail.com"> helpvzla@gmail.com</h4> </a>
+			<h4> Si deseas incluir alguna organizaci&oacute;n </br> o campa&ntilde;a, cont&aacute;ctanos: </h4>  
+			<h4><a href="mailto:info@vzla.help"> info@vzla.help </a></h4>
 		</div>
 	</body>
 </html>
