@@ -16,15 +16,17 @@
 				//Constants
 				var titleTagName = "H2";
 				var cellTagName = "DIV";
+				var otherTagNames = ["H5"];
 				var categoryAttribute = "data-category";
 				var selectedCategoryClass = "selected-category";
-				var unselectedCategoryClass = "unselected-category"
+				var unselectedCategoryClass = "unselected-category";
 				//Helper variables
 				var currentCategory
 				//Variables
 				var categoryTitles = {};
 				var selectedCategory = "";
 				var categoryBoxes = {};
+				var categoryOthers = {};
 				//Select Category
 				var selectCategory = function(category) {
 					selectedCategory = category;
@@ -57,11 +59,38 @@
    							}
    						}
    					}
+   					for (var category in categoryOthers) {
+   						if (!categoryBoxes.hasOwnProperty(category)) continue;
+   						var others = categoryOthers[category];
+   						if (category === selectedCategory) {
+   							for (var i=0; i<others.length; i+=1) {
+   								var other = others[i];
+   								$(other).css("display","");
+   							}
+   						}else {
+   							for (var i=0; i<others.length; i+=1) {
+   								var other = others[i];
+   								$(other).css("display","none");
+   							}
+   						}
+   					}
+				};
+				//Opening a URL
+				var openURL = function(url) {
+					var win = window.open(url, '_blank');
+					if (win) {
+    					//Browser has allowed it to be opened
+   						 win.focus();
+					} else {
+    					//Browser has blocked it
+						window.location.href = url;
+					}
 				};
 				//Pre-processing and binding
 				$("#content").children().each(function() {
 					var $t = $(this);
-					if ($t.prop("tagName") === titleTagName) {
+					var tagName = $t.prop("tagName") 
+					if (tagName === titleTagName) {
 						var category = $t.attr(categoryAttribute);
 						currentCategory = category;
 						if ($t.hasClass(selectedCategoryClass)) {
@@ -69,15 +98,18 @@
 						}
 						categoryTitles[currentCategory] = this;
 						categoryBoxes[currentCategory] = new Array();
+						categoryOthers[currentCategory] = new Array();
 						$t.click(function() {
 							selectCategory(category);
 						});
-					}else if ($t.prop("tagName") === cellTagName) {
+					}else if (tagName === cellTagName) {
 						categoryBoxes[currentCategory].push(this);
 						var url = $t.find("a").first().attr("href");
 						$t.click(function() {
-							window.location.href = url;
+							openURL(url);
 						});
+					}else if (otherTagNames.indexOf(tagName) > -1) {
+						categoryOthers[currentCategory].push(this);
 					}
 					$t.attr(categoryAttribute,currentCategory);
 				});
@@ -163,7 +195,7 @@
 				position:relative;
 				margin:0 auto;
 				/* At least the height of top cells  (***) */
-				padding-top:100px;
+				padding-top:70px;
 				text-align:center;
 			}
 			/* Top headers  */
@@ -273,6 +305,7 @@
 				color:black;
 				/* Removing this will make it underlined */
 				text-decoration:none;
+				pointer-events:none;
 			}
 			p {
 				display:block;
@@ -290,7 +323,7 @@
 				background-position:center;
 				border-radius:3px;
 			}	
-			p:hover {
+			#content > div:hover > p {
     			opacity: 0.5;
     			filter: alpha(opacity=50); /* For IE8 and earlier */
 			}
@@ -346,24 +379,25 @@
           		transform: rotate(-10deg);
 			}
 			h4 {
-			font-family: aleolight;
-			font-size: 130%;
+				font-family: aleolight;
+				font-size: 130%;
 			}
 		    h4 > a:link  {
-		    font-family: aleobold;
-			text-decoration:none;
-			color: #59caed;
+		    	font-family: aleobold;
+				text-decoration:none;
+				color: #59caed;
 			}
 			h4 > a:hover {
-			color: #fed300;
-			
+				color: #fed300;
 			}
 			.hideme {
-			opacity:0;
+				opacity:0;
 			}
 			h5{
-			font-family: 'Karla', sans-serif;
-			font-size: 100%;
+				font-family: 'Karla', sans-serif;
+				font-size: 100%;
+				margin-top:0px;
+				padding-top:0px;
 			}
 		</style>
 	</head>
@@ -382,13 +416,13 @@
 		<div id="content">
 			<h2 class="col-1 unselected-category" data-category="food">Alimentos</h2> 
 			<h5>
-				El gobierno de Venezuela proh&iacute;be el envi&oacute; de alimentos desde </br> 
-				el exterior del pa&iacute;s pero aqu&iacute; incluimos algunos servicios de envi&oacute; que se especializan en esta &aacute;rea
+				El gobierno de Venezuela regula fuertemente el env&iacute;o de alimentos desde
+				el exterior del pa&iacute;s. Aqu&iacute; incluimos servicios que hacen lo posible dentro de lo legal.
  			</h5>		
  			<div>
-				<h3><a href="">mandao venezolano</a></h3>
+				<h3><a href="https://www.facebook.com/mandaovenezolano/?fref=ts">Mandao Venezolano</a></h3>
 				<p style="background-color: #F2836B; background-size:100% auto;">
-					El gobierno de Venezuela prohibe el env&iacute;o de alimentos desde el exterior del pa&iacute;s;
+					Servicio privado de env&iacute;o de alimentos desde EEUU.
 				</p>
 			</div><h2 class="col-2 selected-category" data-category="medicine">Medicinas</h2><div>
 				<h3><a href="http://www.chamos.org.uk">Chamos</a></h3>
@@ -441,6 +475,12 @@
 					Texto
 				</p>
 			</div> --><h2 class="col-3 unselected-category" data-category="campaigns">Campa&ntilde;as</h2><div>
+				<h3><a href="https://www.gofundme.com/afiunilapelicula">Afiuni la Pel&iacute;cula</a></h3>
+				<p style="background-color: #00D5B9; background-size:100% auto;">
+					Un film sobre el encarcelamiento pol&iacute;tico y maltrato de la jueza
+					Mar&iacute;a Afiuni por parte del gobierno venezolano.
+				</p>
+			</div><div>
 				<h3><a href="https://www.gofundme.com/28j8c6k">Giselle (PhD Mate)</a></h3>
 				<p style="background-color: #FFE13A; background-size:100% auto; position-left: 6px">
 					Aceptada con beca en la Universidad de Waterloo (Canada),
@@ -461,12 +501,6 @@
 				<p style="background-color: #16BBFF; background-size:100% auto;">
 					Fu&eacute; aceptada en la Universidad del Estado de Florida con ayuda financiera, y necesita dinero para
 					cubrir su primer mes de estudio.
-				</p>
-			</div><div>
-				<h3><a href="https://www.gofundme.com/afiunilapelicula">Afiuni la Pel&iacute;cula</a></h3>
-				<p style="background-color: #00D5B9; background-size:100% auto;">
-					Un film sobre el encarcelamiento pol&iacute;tico y maltrato de la jueza
-					Mar&iacute;a Afiuni por parte del gobierno venezolano.
 				</p>
 			</div><div>
 				<h3><a href="https://www.gofundme.com/gqvu7j9t">Olga (C&aacute;ncer)</a></h3>
@@ -502,7 +536,7 @@
 		</div>
 		<div id="footer">
 			<h4> Si deseas incluir alguna organizaci&oacute;n </br> o campa&ntilde;a, cont&aacute;ctanos: </h4>  
-			<h4><a href="mailto:info@helpvzla.org"> info@vzla.help </a></h4>
+			<h4><a href="mailto:info@helpvzla.org"> info@helpvzla.org </a></h4>
 		</div>
 	</body>
 </html>
