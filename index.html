@@ -26,13 +26,24 @@
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script>
 			$(document).ready(function() {
-				//Moving H1 away
+				//Moving H1 away + Hide me elements
 				var $h1 = $("h1");
 				var $vdl = $("#vertical-dotted-line");
 				var scrollFunc = function(){
     				$h1.css("top", Math.min(0, $vdl.height() - 35 - $(this).scrollTop()));
 				};
-				$(window).scroll(scrollFunc);
+				$(window).scroll(function() {
+					scrollFunc();
+					/* Hide me elements */
+					$('.hideme').each( function(i){
+						var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+						var bottom_of_window = $(window).scrollTop() + $(window).height();
+						/* If the object is completely visible in the window, fade it it */
+						if( bottom_of_window > bottom_of_object ){
+							$(this).animate({'opacity':'1'},600);
+						}
+					}); 
+				});
 				$(window).resize(scrollFunc);
 				//Constants
 				var titleTagName = "H2";
@@ -138,32 +149,15 @@
 				showOrHideBoxes();
 			});
 		</script>
-		<script> 
-		$(document).ready(function() {
-    
-    /* Every time the window is scrolled ... */
-    $(window).scroll( function(){
-    
-        /* Check the location of each desired element */
-        $('.hideme').each( function(i){
-            
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            /* If the object is completely visible in the window, fade it it */
-            if( bottom_of_window > bottom_of_object ){
-                
-                $(this).animate({'opacity':'1'},600);
-                    
-            }
-            
-        }); 
-    
-    });
-    
-});
-</script>
-	
+		<!--Google Analytics-->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-80055420-1', 'auto');
+			ga('send', 'pageview');
+		</script>
 		<style type="text/css">
 			body, html {
 				margin:0px;
