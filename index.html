@@ -27,10 +27,13 @@
 		<script>
 			$(document).ready(function() {
 				//Moving H1 away
-				$(window).scroll(function(){
-					console.log(parseInt($("body").css("padding-top")));
-    				$("h1").css("top", Math.min(0, $("#vertical-dotted-line").height() - 35 - $(this).scrollTop()));
-				});
+				var $h1 = $("h1");
+				var $vdl = $("#vertical-dotted-line");
+				var scrollFunc = function(){
+    				$h1.css("top", Math.min(0, $vdl.height() - 35 - $(this).scrollTop()));
+				};
+				$(window).scroll(scrollFunc);
+				$(window).resize(scrollFunc);
 				//Constants
 				var titleTagName = "H2";
 				var cellTagName = "DIV";
@@ -183,11 +186,13 @@
 				padding-bottom:0px;
 				margin-bottom:-40px;
 				margin-top:0px;
+				pointer-events:none;
 			}
 			/* Map */
 			h1:before {
 				content:url(assets/map.png);
 				margin-right:-15px;
+				pointer-events:none;
 			}
 			/* White banner (to hide dotted line behind it) */
 			h1:after {
@@ -199,6 +204,7 @@
 				background:white;
 				content:"";
 				z-index:-1;
+				pointer-events:none;
 			}
 			/* Actual Title */
 			h1 > div {
@@ -350,6 +356,7 @@
    				border-left: 4px dotted black;
     			height: 70%;
     			width:0px;
+				pointer-events:none;
 			} 
 			#people {
 				height:150px;
@@ -358,9 +365,9 @@
 				background-repeat:no-repeat;
 				background-size: auto 100%;
 				margin-bottom: 30px;
-				} 
+				pointer-events:none;
+			} 
 			#flying {
-		
 				margin-top:-125px;
 				height:150px;
 				background-image:url(assets/flying.png);
@@ -368,6 +375,7 @@
 				background-repeat:no-repeat;
 				background-size: auto 100%;
 				margin-bottom: 0px;
+				pointer-events:none;
 			}
 			#footer {
 				width:100%;
