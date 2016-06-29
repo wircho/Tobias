@@ -29,7 +29,7 @@
 				//Moving H1 away
 				$(window).scroll(function(){
 					console.log(parseInt($("body").css("padding-top")));
-    				$("h1").css("top", Math.min(0, -$("#vertical-dotted-line").height() - parseInt($("body").css("padding-top")) + 535 - $(this).scrollTop()));
+    				$("h1").css("top", Math.min(0, $("#vertical-dotted-line").height() - 35 - $(this).scrollTop()));
 				});
 				//Constants
 				var titleTagName = "H2";
@@ -168,7 +168,7 @@
 				text-align:center;
 			}
 			body {
-				padding-top:150px;
+				padding-top:200px;
 			}
 			h1 {
 				position:fixed;
