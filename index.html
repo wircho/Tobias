@@ -28,7 +28,8 @@
 			$(document).ready(function() {
 				//Moving H1 away
 				$(window).scroll(function(){
-    				$("h1").css("top", Math.min(0, $("#vertical-dotted-line").height() - 100 - $(this).scrollTop()));
+					console.log(parseInt($("body").css("padding-top")));
+    				$("h1").css("top", Math.min(0, -$("#vertical-dotted-line").height() - parseInt($("body").css("padding-top")) + 535 - $(this).scrollTop()));
 				});
 				//Constants
 				var titleTagName = "H2";
@@ -379,8 +380,8 @@
 				height:40px;
 				position: fixed;
 				display: inline;
+				top:40px;
 				right:40px;
-				margin-top: -110px; 
 				z-index:1;
 				-webkit-transition: all 0.5s ease;
      			-moz-transition: all 0.5s ease;
@@ -416,6 +417,18 @@
 				margin-top:0px;
 				padding-top:0px;
 			}
+			@media screen and (max-width: 650px) {
+    			body {
+        			padding-top:380px;
+    			}
+    			h1:before {
+    				display:block;
+    			}
+    			h1:after {
+					height:380px;
+				}
+			}
+			
 		</style>
 	</head>
 	<body>
